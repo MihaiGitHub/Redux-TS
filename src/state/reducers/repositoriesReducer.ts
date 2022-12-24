@@ -18,6 +18,11 @@ interface SearchRepositoriesSuccessAction {
   payload: string[];
 }
 
+interface SearchRepositoriesErrorAction {
+  type: "search_repositories_error";
+  payload: string;
+}
+
 const reducer = (
   state: RepositoriesState,
   action: Action
