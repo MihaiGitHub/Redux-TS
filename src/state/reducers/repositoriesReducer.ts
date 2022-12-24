@@ -9,6 +9,10 @@ interface Action {
   payload?: any;
 }
 
+interface SearchRepositoriesAction {
+  type: "search_repositories";
+}
+
 const reducer = (
   state: RepositoriesState,
   action: Action
