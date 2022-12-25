@@ -4,11 +4,6 @@ interface RepositoriesState {
   data: string[];
 }
 
-interface Action {
-  type: string;
-  payload?: any;
-}
-
 interface SearchRepositoriesAction {
   type: "search_repositories";
 }
@@ -23,13 +18,19 @@ interface SearchRepositoriesErrorAction {
   payload: string;
 }
 
+type Action =
+  | SearchRepositoriesAction
+  | SearchRepositoriesSuccessAction
+  | SearchRepositoriesErrorAction;
+
 const reducer = (
   state: RepositoriesState,
-  action:
-    | SearchRepositoriesAction
-    | SearchRepositoriesSuccessAction
-    | SearchRepositoriesErrorAction
+  action: Action
 ): RepositoriesState => {
+  if (action.type === "search_repositories_success") {
+    action.payload;
+  }
+
   switch (action.type) {
     case "search_repositories":
       return { loading: true, error: null, data: [] };
