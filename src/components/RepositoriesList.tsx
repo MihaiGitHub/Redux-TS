@@ -25,6 +25,7 @@ const RepositoriesList: React.FC = () => {
         <button>Search</button>
       </form>
       {error && <h3>{error}</h3>}
+      {loading && <h1>Loading...</h1>}
     </div>
   );
 };
